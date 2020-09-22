@@ -187,15 +187,15 @@ const addressList = (dataset) => {
 
 const messageOutput = function (obj){
 
-  console.log(obj)
-//     return `
-//   ${name.title}, ${name.first}, ${name.last}
-//   ${street.number}, ${street.name}
-//   ${location.city}, ${location.state}
-//   ${location.country}, ${location.postcode}
-//   Email: , ${obj.email}
-//   Birthday: , ${dob.date}
-// `
+  // console.log(obj)
+    return `
+  ${name.title}, ${name.first}, ${name.last}
+  ${street.number}, ${street.name}
+  ${location.city}, ${location.state}
+  ${location.country}, ${location.postcode}
+  Email: , ${obj.email}
+  Birthday: , ${dob.date}
+`
 // remove remaining characters from birthday log
   };
 
