@@ -178,67 +178,70 @@ const addressList = (dataset) => {
   // - Use destructuring to parse the data if you can and output the data in the format listed above into the terminal
   // - If you cannot use destructuring parse the data in the way that you know how
   let { results: [...array] } = dataset
-  let [{ gender, name, location, email, login, dob, registered, phone, cell, id, picture, nat }] = array
-  let { title, first, last } = name
-  let { street, city, state, country, postcode, coordinate, timezone } = location
-  let { date, age } = dob;
+  // let [{ gender, name, location, email, login, dob, registered, phone, cell, id, picture, nat }] = array
+  // let { title, first, last } = name
+  // let { street, city, state, country, postcode, coordinate, timezone } = location
+  // let { date, age } = dob;
+  
 
 
 
-const messageOutput = function (obj){
 
-  // console.log(obj)
-    return `
-  ${name.title}, ${name.first}, ${name.last}
-  ${street.number}, ${street.name}
-  ${location.city}, ${location.state}
-  ${location.country}, ${location.postcode}
-  Email: , ${obj.email}
-  Birthday: , ${dob.date}
-`
-// remove remaining characters from birthday log
+
+
+
+
+  let [{ 
+    gender, name:{title, first, last}, 
+    location:{street, city, state, country, postcode, coordinates, timezone},
+    email, login, dob:{date, age}, registered, phone, cell, id, picture, nat }] = array
+
+// console.log(array)
+
+  const messageOutput = function (obj){
+return  `
+        ${title}, ${first}, ${last}
+        ${street.number}, ${street.name}
+        ${city}, ${state}
+        ${country}, ${postcode}
+        Email: , ${obj.email}
+        Birthday: , ${date}
+        `
+
+    // remove remaining characters from birthday log
   };
+  
+  
+  
+  //   // console.log(obj)
+  //     return `
+  //   ${name.title}, ${name.first}, ${name.last}
+  //   ${street.number}, ${street.name}
+  //   ${location.city}, ${location.state}
+  //   ${location.country}, ${location.postcode}
+  //   Email: , ${obj.email}
+  //   Birthday: , ${dob.date}
+  // `
 
 
-
-//   const messageOutput = `
-//   ${title}, ${first}, ${last}
-//   ${street.number}, ${street.name}
-//   ${city}, ${state}
-//   ${country}, ${postcode}
-//   Email: , ${email}
-//   Birthday: , ${date}
-// `
-
+  // const messageOutput =
+  
+  // }
   // - You will need to manipulate some of the data to get the formatted output, so use your vanilla js
   // - Remember, the data should output to the terminal
   // - Return only the males OR only the females
   const femalesOnly = array.filter((value) => value.gender === 'female')
+  // const femalesOnly = array.filter((value) => console.log(value))
+  // return femalesOnly
 
-
-  femalesOnly.forEach((value, index, array)=>{
-
-    console.log(messageOutput(value))
-    // console.log(value)
+femalesOnly.forEach((value) => {
+// console.log(value)
+console.log(messageOutput(value))
   })
 
-  // femalesOnly.forEach((element, index, number, array) => {
+// console.log(newArray)
 
-  // console.log(element)
-  // console.log(index)
-  // console.log(number)
-
-
-  //   console.log()
-  //   console.log()
-  //   console.log()
-  // })
-
-
-
-
-  // })}
+  // const femalesOnly = newArray.filter((female)=> female.gender === 'female')
 }
 
-// console.log(addressList(data))
 console.log(addressList(data))
